@@ -1,0 +1,33 @@
+{
+  "name": "cpm-mern",
+  "version": "1.0.0",
+  "description": "Construction Project Management App",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KRISHNA-git11/CPM-MERN.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KRISHNA-git11/CPM-MERN/issues"
+  },
+  "homepage": "https://github.com/KRISHNA-git11/CPM-MERN#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
