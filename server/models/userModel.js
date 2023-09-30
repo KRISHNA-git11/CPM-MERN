@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs';
 
 const userSchema = mongoose.Schema({
+    // userId: {
+    //     type: mongoose.Schema.Types.ObjectId, // Use ObjectId for automatic generation
+    //     default: mongoose.Types.ObjectId, // Automatically generate a new ObjectId
+    //     unique: true,
+    // },
     firstName: {
         type: String,
         required: true,
@@ -31,10 +37,30 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        default: "user"
     }
 }, {
     timestamps: true
 })
+
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        next();
+    }
+    // hashing
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+
+})
+
+// Check if entered password matches with hashed password
+userSchema.methods.checkPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
 
 const User = mongoose.model('User', userSchema);
 
