@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js'
-
+import bidRoutes from './routes/bidRoutes.js'
 connectDB();
 
 const port = process.env.PORT || 8800;
@@ -21,6 +21,7 @@ app.use(express.urlencoded({
 ))
 app.use(cookieParser());
 app.use('/api/users', userRoutes);
+app.use('/api/bids', bidRoutes);
 
 // error handling middleware
 app.use(notFound);
