@@ -19,6 +19,7 @@ import PrivateRoute from './components/PrivateRoute.jsx';
 import BiddingPlatform from './screens/BiddingPlatform.jsx';
 import BidForm from './components/BidForm.jsx';
 import BidScreen from './screens/BidScreen.jsx';
+import CompanyProfile from './screens/CompanyProfile.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +38,9 @@ const router = createBrowserRouter(
       </Route>
       <Route path='' element={<PrivateRoute />}>
         <Route path='/bid/:id' element={<BidScreen />} />
+      </Route>
+      <Route path='' element={<PrivateRoute />}>
+        <Route path='/company/:companyTitle/:id' element={<CompanyProfile />} />
       </Route>
     </Route>
   )

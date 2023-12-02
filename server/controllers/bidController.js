@@ -8,7 +8,6 @@ import Bid from "../models/bidModel.js";
 const createBid = expressAsyncHandler( async(req, res) => {
     const { projectTitle, projectDescription, address, city, state, zip, type, startDate, posterName, posterEmail, posterCompany} = req.body
     try {
-        console.log(req)
         const filesData = req.files.map(file => ({
           filename: file.filename,
           title: projectTitle + " " + file.originalname,

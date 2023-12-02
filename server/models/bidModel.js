@@ -81,7 +81,6 @@ const bidSchema = mongoose.Schema ({
                 required: true,
                 trim: true
             },
-            // Add other file-related properties as needed
         }
     ]
 

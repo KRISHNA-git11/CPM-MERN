@@ -16,7 +16,7 @@ import { getBidsByProjectTitle } from "../controllers/bidController.js";
 // Get the absolute path to the destination directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const destinationPath = path.join(__dirname, "../files");
+const destinationPath = path.join(__dirname, "../files/projectFiles");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
